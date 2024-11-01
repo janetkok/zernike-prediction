@@ -23,9 +23,10 @@ Train model on SD25 simulated data
 `python train_eval.py --config /config/sd25/conf.yaml`
 
 Infer on SD25 simulated data: 
-- Modify the argument 'infer' to `true` and 'resume_path' to `/models/sd25/model_best.pth.tar`
+- Modify the arguments in the config file 'infer' to `true` and 'resume_path' to `/models/sd25/model_best.pth.tar`
 
 Pre-train model on SD10 simulated data
+
 `python train_eval.py --config /config/sd10/conf.yaml`
 
 ### Experimental data
