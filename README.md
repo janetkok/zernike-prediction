@@ -1,7 +1,7 @@
 # Practical Aberration Correction using Deep Transfer Learning with Limited Experimental Data
 
 
-The paper is currently submitted for publication.
+The paper is now available at [Optics Express](https://doi.org/10.1364/OE.557993)
 
 # Table of contents
 1. [Installation](#Installation)
