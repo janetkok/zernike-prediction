@@ -25,29 +25,29 @@ pip install -r requirements.txt
 
 Train model on SD25 simulated data
 
-`python train_eval.py --config /config/sd25/conf.yaml`
+`python train_eval.py --config /config/sd25/conf.yml`
 
 Infer on SD25 simulated data: 
 - Modify the arguments in the config file 'infer' to `true` and 'resume_path' to `/models/sd25/model_best.pth.tar`
 
 Pre-train model on SD10 simulated data
 
-`python train_eval.py --config /config/sd10/conf.yaml`
+`python train_eval.py --config /config/sd10/conf.yml`
 
 ### Experimental data
 
 Infer model on ED24 experimental data
 
-`python train_eval.py --config /config/ed24/conf.yaml`
+`python train_eval.py --config /config/ed24/conf.yml`
 
 Infer model on ED10 experimental data using 1 channel only
 
-`python train_eval.py --config /config/ed10/inputChannels/ch1/conf.yaml`
+`python train_eval.py --config /config/ed10/inputChannels/ch1/conf.yml`
 
 Fine-tune model with pre-training on 1% training data of ED10 experimental data 
 
-`python train_eval.py --config /config/ed10/withAndWithoutPretrained/withoutPretrained1/conf.yaml`
+`python train_eval.py --config /config/ed10/withAndWithoutPretrained/withoutPretrained1/conf.yml`
 
 Fine-tune model without pre-training on 50% training data of ED10 experimental data 
 
-`python train_eval.py --config /config/ed10/withAndWithoutPretrained/withPretrained50/conf.yaml`
+`python train_eval.py --config /config/ed10/withAndWithoutPretrained/withPretrained50/conf.yml`
