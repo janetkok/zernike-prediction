@@ -227,6 +227,7 @@ class AberrationDataset(torch.utils.data.Dataset):
         self.num_zernike = num_zernike
         self.C_val_test = torch.randint(self.zRange_start, self.zRange_end ,size=(val_test_size,self.num_zernike))
         self.C_val_test = (self.C_val_test-100)*0.01
+        self._val_test_set = set(map(tuple, self.C_val_test.tolist()))
 
         self.gen_aberration = Aberration(128,device='cuda',precision=precision,bias_z=bias_z, zernike=zernike,bias_val=bias_val,npts=npts)
 
@@ -236,9 +237,8 @@ class AberrationDataset(torch.utils.data.Dataset):
           while gen_tr:
             C = torch.randint(self.zRange_start, self.zRange_end ,size=(self.num_zernike,))
             C = (C-100)*0.01
-            is_equal = torch.eq(self.C_val_test, C).all(dim=1)
-            # Execute code if any set of numbers is equal
-            if not is_equal.any():
+            # Regenerate only if this exact coeff vector lands in val/test.
+            if tuple(C.tolist()) not in self._val_test_set:
               gen_tr = False
           aberration, coeffs = self.gen_aberration.gen(C=C)
         else:
